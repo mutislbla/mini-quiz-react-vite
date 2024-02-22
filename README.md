@@ -18,8 +18,10 @@ To deploy this project run
 ```
 ```bash
   npx prisma db push
+```
 ```bash
   npx prisma db seed
+```
 ```bash
   npm run dev
 ```
