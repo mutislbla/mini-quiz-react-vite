@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int         @id @default(autoincrement())
+  username      String      @unique
+  full_name     String
+  email         String      @unique
+  password      String 
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @default(now())
+}
+
+model Questions {
+  id              Int         @id @default(autoincrement())
+  question        String      @unique
+  choice          Choice[]
+}
+
+model Choice {
+  id              Int         @id @default(autoincrement())
+  question        Questions    @relation(fields: [question_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  question_id     Int     
+  choice          String
+  isTrue          Boolean      
+}
+
