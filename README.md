@@ -14,6 +14,15 @@ To deploy this project run
   npm install
 ```
 ```bash
+  docker build -t backend .
+```
+```bash
+  docker compose up
+```
+
+then deploy this in docker
+
+```bash
   npx prisma generate
 ```
 ```bash
@@ -21,9 +30,6 @@ To deploy this project run
 ```
 ```bash
   npx prisma db seed
-```
-```bash
-  npm run dev
 ```
 
 ## Frontend
